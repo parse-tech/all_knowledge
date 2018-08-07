@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import (Flask, render_template, flash, redirect, url_for, request, send_from_directory)
 import db_connect
 import pymysql
 
@@ -22,7 +22,7 @@ outpost = 'Command: ' + results
 
 @web_app.route('/')
 def main_page():
-    return output
+    return render_template('base.html')
 
 if __name__ == '__main__':
     web_app.run(debug=DEBUG, host=HOST, port=PORT)
